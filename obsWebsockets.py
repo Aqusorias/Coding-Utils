@@ -34,7 +34,7 @@ class OBSWebsocketsManager:
             print("COULD NOT CONNECT TO OBS!\nDouble check that you have OBS open and that your websockets server is enabled in OBS.")
             time.sleep(10)
             sys.exit()
-        print("Connected to OBS Websockets!\n")
+        print("Successfully connected to OBS Websockets!\n")
 
 
     def change_scene(self, scene_name):

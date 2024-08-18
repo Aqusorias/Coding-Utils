@@ -4,6 +4,8 @@ import pygame
 import asyncio
 import soundfile as sf
 from mutagen.mp3 import MP3
+from pydub import AudioSegment
+
 
 
 ''' -Information:
@@ -13,10 +15,13 @@ Initialize: `audio_manager = AudioManager()`
 >>:-  pip install pygame==2.6.0
       pip install mutagen==1.47.0
       pip install soundfile==0.12.1
+      pip install pyDub==0.25.1
 
 Usage: 
-1. audio_manager.play_audio(file_path, sleep_during_playback=True, delete_file=False, pygame_music=True)
-2. audio_manager.play_audio_async(file_path)
+1. audio_manager.play_audio(file_path, sleep_during_playback=True, delete_file=False, pygame_music=True)            // Plays an audio file, waits for the length of the audio before returning
+2. audio_manager.play_audio_async(file_path)                                                                        // Plays an audio file asynchronously
+3. audio_manager.stop_audio()                                                                                       // Stops ALL the audios
+4. audioplayer_output = audio_manager.convertFile(file_path, new_extension=".wav")                                  // Converts an audio file to a new format and returns the file path
 
 file_path = Path to the audio file that should be played
 sleep_during_playback (bool): True: program will wait for the length of the audio before returning, False: program will return immediately
@@ -24,12 +29,14 @@ delete_file (bool): True: deletes the file after playing, False: keeps the file 
 pygame_music (bool): True: Uses Pygame Music, False: Uses PyGame Sound
     PyGame Music: only 1 sound at a time, good for large files
     PyGame Sound: multiple sounds simultaneously, good for small/short files
+new_extension: New file extension for the audio file
 '''
 
 
 class AudioManager:
     def __init__(self):
         pygame.mixer.init(frequency=48000, buffer=1024) # default 44100, 512
+        print("Successfully connected to AudioManager!\n")
         
 
     def play_audio(self, file_path, sleep_during_playback=True, delete_file=False, pygame_music=True):
@@ -85,6 +92,37 @@ class AudioManager:
             return
 
         await asyncio.sleep(file_length)
+
+
+    def stop_audio(self):
+        pygame.mixer.music.stop()
+        pygame.mixer.quit()
+
+
+    def convertFile(self, file_path, new_extension=".wav"):
+        old_extension = file_path.split('.')[-1].lower()
+        new_file_path = file_path.replace(os.path.splitext(file_path)[1], new_extension)
+        if os.path.exists(new_file_path):
+            return new_file_path
+        
+        if old_extension == new_extension:
+            print("Source and target formats are the same. No conversion needed.")
+            return
+
+        if old_extension == 'wav':
+            audio = AudioSegment.from_wav(file_path)
+        elif old_extension == 'mp3':
+            audio = AudioSegment.from_mp3(file_path)
+        elif old_extension == 'ogg':
+            audio = AudioSegment.from_ogg(file_path)
+        elif old_extension == 'flac':
+            audio = AudioSegment.from_flac(file_path)
+        else:
+            print("Cannot convert audio, unknown source file type")
+            return
+        audio.export(new_file_path, format=new_extension)
+
+        return new_file_path
 
 
 if __name__ == '__main__':

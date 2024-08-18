@@ -1,10 +1,6 @@
 import os
 from elevenlabs import generate, stream, set_api_key, voices, play, save
 
-try:
-  set_api_key(os.getenv('ELEVENLABS_API_KEY'))
-except TypeError:
-  exit("You need to set the ELEVENLABS_API_KEY environment variable to use this script.")
 
 ''' -Information: SETUP: in your Windows environment variables, set the ELEVENLABS_API_KEY to your 11Labs API key
 Import: `from ElevenLabs import ElevenLabsManager`
@@ -13,9 +9,9 @@ Initialize: `elevenlabs_manager = ElevenLabsManager()`
 >>:-  pip install elevenlabs==1.7.0
 
 Usage: 
-1. elevenlabs_output = elevenlabs_manager.convertTextToAudio(text, voice="", save_as_wave=True, subdirectory="")
-2. elevenlabs_output = elevenlabs_manager.play_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")
-3. elevenlabs_output = elevenlabs_manager.stream_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")
+1. elevenlabs_output = elevenlabs_manager.convertTextToAudio(text, voice="", save_as_wave=True, subdirectory="")                   // Converts tts and returns the file path
+2. elevenlabs_output = elevenlabs_manager.play_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")              // Converts tts and plays it instantly, waits for it to finish until continuing, if saveFile=True, it will return the file path
+3. elevenlabs_output = elevenlabs_manager.stream_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")            // Converts tts and streams it instantly without waiting for it to finish, if saveFile=True, it will return the file path
 
 text = Text that should be converted to audio with 11Labs
 voice = Name of the Voice in 11Labs you want to use
@@ -27,11 +23,16 @@ subdirectory = Subdirectory where the audio file should be saved (Empty will be 
 
 class ElevenLabsManager:
     def __init__(self):
+        try:
+            set_api_key(os.getenv('ELEVENLABS_API_KEY'))
+        except TypeError:
+            exit("You need to set the ELEVENLABS_API_KEY environment variable to use this script.")
+        print("Successfully connected to ElevenLabs!\n")
         all_voices = voices()
         print(f"\nAll ElevenLabs voices: \n{all_voices}\n")
         
 
-    # Conver tts ---> Returns the file path
+    # Convert tts ---> Returns the file path
     def convertTextToAudio(self, text, voice="", save_as_wave=True, subdirectory=""):
         elevenlabs_audio = generate( text=text, voice=voice, model="eleven_monolingual_v1" )
 
