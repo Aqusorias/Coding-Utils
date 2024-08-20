@@ -1,8 +1,8 @@
 # Modules - made by Aqusorias
 
-[![GitHub downloads](https://img.shields.io/github/downloads/Aqusorias/Coding-Utils/total?style=flat-square]()
+![GitHub downloads](https://img.shields.io/github/downloads/Aqusorias/Coding-Utils/total?style=flat-square)
 
-These are some Modules that I've made that might come in handy at some point. They mostly are useful for streaming, but it's not restricted for it.
+These are some Modules that I've made that might come in handy at some point. They mostly are useful for streaming, but it's not restricted for it
 
 ---
 
@@ -20,6 +20,7 @@ These are some Modules that I've made that might come in handy at some point. Th
 - **ElevenLabsSpeech.py*** - ElevenLabsSpeech lets you convert text into TTS with a premade voice in [ElevenLabs](https://elevenlabs.io).
 - **AmazonPollySpeech.py** - AmazonPollySpeech lets you convert text into TTS with different voices (used by StreamElements and StreamLabs).
 - **gTTSSpeech.py** - ~Comming soon~
+
 ****Needs some pre-preparations, explained in How to use*** 
 
 The Speech modules convert text into an audio file which then can be played with my Audioplayer. Exception is ElevenLabsSpeech, that also can play- and stream it itself.
@@ -58,4 +59,5 @@ Some modules return a value, and in some cases, in some functions, it CAN return
 # Special Thanks
 
 Special thanks to [SietseT](https://github.com/SietseT) which made the [Elundus Core](https://github.com/SietseT/ElundusCoreApp) App! It gave me the idea to make the AmazonPollySpeech and how to do it
+
 Also special thanks to [DougDoug](https://github.com/DougDougGithub) that made me do all this Coding and also brought me to the idea of doing it this way, go watch him on [Youtube](https://www.youtube.com/@DougDoug) ^^
