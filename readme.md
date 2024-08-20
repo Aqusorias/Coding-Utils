@@ -33,7 +33,7 @@ The Speech modules convert text into an audio file which then can be played with
 # How to use
 - Download the module you want to use and put it into your workspace. **Must be in the same folder where it will be used**
 - Import the module in your main file with "from [filename] import [class]". To get the class, just open the module you've just downloaded and check it
-- Initialize it with "(variable) = [class]()
+- Initialize it with "(variable) = [class]()"
 - Finished! After you have initialized it, you can just use it normally
 
 In each module on top of the file is more information on how to use it, how to set it up, and docs if you want to modify it.
