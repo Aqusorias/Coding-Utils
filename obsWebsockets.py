@@ -1,11 +1,15 @@
 import sys
 import time
+from rich import time
 from obswebsocket import obsws, requests
 
 
-''' -Information: SETUP: in obs, go to Tools -> WebSockets Server Settings -> Enable WebSockets Server checkbox. Server Port 4455, Password: OBSWebSocketPassword
+''' -Information: SETUP: In OBS, go to Tools -> WebSockets Server Settings -> Enable the WebSockets Server checkbox, set Server Port to 4455, set the Password to 'OBSWebSocketPassword'
 Import: `from obsWebsockets import OBSWebsocketsManager`
 Initialize: `obswebsockets_manager = OBSWebsocketsManager()`
+--------------------------
+Documentation: https://websockets.readthedocs.io/en/stable/
+--------------------------
 
 >>:-  pip install obs-websocket-py
 
@@ -31,10 +35,10 @@ class OBSWebsocketsManager:
         try:
             self.ws.connect()
         except:
-            print("COULD NOT CONNECT TO OBS!\nDouble check that you have OBS open and that your websockets server is enabled in OBS.")
+            print("[orange]obsWebSockets[/orange]-> [red]COULD NOT CONNECT TO OBS!\nDon't forget to enable Websockets in OBS with the correct port and password.")
             time.sleep(10)
             sys.exit()
-        print("Successfully connected to OBS Websockets!\n")
+        print("[orange]obsWebSockets[/orange]-> [green]Successfully connected to OBS Websockets!")
 
 
     def change_scene(self, scene_name):

@@ -1,23 +1,29 @@
 import os
+from rich import time
 from elevenlabs import generate, stream, set_api_key, voices, play, save
 
 
 ''' -Information: SETUP: in your Windows environment variables, set the ELEVENLABS_API_KEY to your 11Labs API key
-Import: `from ElevenLabs import ElevenLabsManager`
+Import: `from ElevenLabsSpeech import ElevenLabsManager`
 Initialize: `elevenlabs_manager = ElevenLabsManager()`
+--------------------------
+Documentations: https://elevenlabs.io/docs/api-reference/text-to-speech
+--------------------------
 
 >>:-  pip install elevenlabs==1.7.0
 
 Usage: 
-1. elevenlabs_output = elevenlabs_manager.convertTextToAudio(text, voice="", save_as_wave=True, subdirectory="")                   // Converts tts and returns the file path
-2. elevenlabs_output = elevenlabs_manager.play_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")              // Converts tts and plays it instantly, waits for it to finish until continuing, if saveFile=True, it will return the file path
-3. elevenlabs_output = elevenlabs_manager.stream_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")            // Converts tts and streams it instantly without waiting for it to finish, if saveFile=True, it will return the file path
+1. elevenlabs_output = elevenlabs_manager.convertTextToAudio(text, voice="", save_as_wave=True, subdirectory="")!?                   // Converts tts and returns the file path
+2. elevenlabs_output = elevenlabs_manager.play_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")!?              // Converts tts and plays it instantly, waits for it to finish until continuing, if saveFile=True, it will return the file path
+3. elevenlabs_output = elevenlabs_manager.stream_tts(text, voice="", saveFile=True, save_as_wave=True, subdirectory="")!?            // Converts tts and streams it instantly without waiting for it to finish, if saveFile=True, it will return the file path
 
 text = Text that should be converted to audio with 11Labs
 voice = Name of the Voice in 11Labs you want to use
 saveFile = True: Saves the audio file, False: Doesn't save the audio file  --: If True, it will return the file path
 save_as_wave = True: Saves the audio file as a .wav, False: Saves the audio file as a .mp3
 subdirectory = Subdirectory where the audio file should be saved (Empty will be the same directory)
+
+!? - Nullable. May in some circumstances return "None"
 '''
 
 
@@ -26,10 +32,9 @@ class ElevenLabsManager:
         try:
             set_api_key(os.getenv('ELEVENLABS_API_KEY'))
         except TypeError:
-            exit("You need to set the ELEVENLABS_API_KEY environment variable to use this script.")
-        print("Successfully connected to ElevenLabs!\n")
-        all_voices = voices()
-        print(f"\nAll ElevenLabs voices: \n{all_voices}\n")
+            exit("[orange]ElevenLabsSpeech[/orange]-> [red]COULD NOT CONNECT TO AZURE!\nDon't forget to set your ELEVENLABS_API_KEY environment variables.")
+        print("[orange]ElevenLabsSpeech[/orange]-> [green]Successfully connected to ElevenLabs!")
+        voices() # Need to call this for some reason
         
 
     # Convert tts ---> Returns the file path
