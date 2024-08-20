@@ -75,15 +75,15 @@ class AzureTTSManager:
         self.azure_speechconfig.speech_synthesis_voice_name = "en-US-AriaNeural"
         self.azure_synthesizer = speechsdk.SpeechSynthesizer(speech_config=self.azure_speechconfig, audio_config=None) # None means it wont play the synthesized text out loud
         if not self.azure_speechconfig:
-            raise Exception("[orange]AzureSpeech[/orange]-> [red]COULD NOT CONNECT TO AZURE!\nDon't forget to set your AZURE_TTS_KEY and AZURE_TTS_REGION environment variables.")
+            raise Exception("[orange4]AzureSpeech[/orange4]-> [red]COULD NOT CONNECT TO AZURE!\nDon't forget to set your AZURE_TTS_KEY and AZURE_TTS_REGION environment variables.")
         else:
-            print("[orange]AzureSpeech[/orange]-> [green]Successfully connected to Azure TTS!")
+            print("[orange4]AzureSpeech[/orange4]-> [green]Successfully connected to Azure TTS!")
 
 
     # Convert tts ---> Returns the file path
     def convertTextToAudio(self, text, voice_name="random", voice_style="random"):
         if len(text) == 0:
-            print("[orange]AzureSpeech[/orange]-> [yellow]convertTextToAudio[/yellow] - [red]The message that was supposed to be converted to audio was empty. Could not convert to audio. Sorry!! [blue](Returned: None)")
+            print("[orange4]AzureSpeech[/orange4]-> [yellow]convertTextToAudio[/yellow] - [red]The message that was supposed to be converted to audio was empty. Could not convert to audio. Sorry!! [blue](Returned: None)")
             return
         
         if voice_name == "random":
@@ -114,7 +114,7 @@ class AzureTTSManager:
             stream = speechsdk.AudioDataStream(result)
             stream.save_to_wav_file(output)
         else:
-            print("[orange]AzureSpeech[/orange]-> [yellow]convertTextToAudio[/yellow] - [red]Azure failed. Could not convert to audio. Sorry!! [blue](Returned: None)")
+            print("[orange4]AzureSpeech[/orange4]-> [yellow]convertTextToAudio[/yellow] - [red]Azure failed. Could not convert to audio. Sorry!! [blue](Returned: None)")
             return
         
         return output

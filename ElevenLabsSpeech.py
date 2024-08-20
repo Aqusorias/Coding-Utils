@@ -32,8 +32,8 @@ class ElevenLabsManager:
         try:
             set_api_key(os.getenv('ELEVENLABS_API_KEY'))
         except TypeError:
-            exit("[orange]ElevenLabsSpeech[/orange]-> [red]COULD NOT CONNECT TO AZURE!\nDon't forget to set your ELEVENLABS_API_KEY environment variables.")
-        print("[orange]ElevenLabsSpeech[/orange]-> [green]Successfully connected to ElevenLabs!")
+            exit("[orange4]ElevenLabsSpeech[/orange4]-> [red]COULD NOT CONNECT TO AZURE!\nDon't forget to set your ELEVENLABS_API_KEY environment variables.")
+        print("[orange4]ElevenLabsSpeech[/orange4]-> [green]Successfully connected to ElevenLabs!")
         voices() # Need to call this for some reason
         
 

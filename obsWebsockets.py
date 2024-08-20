@@ -35,10 +35,10 @@ class OBSWebsocketsManager:
         try:
             self.ws.connect()
         except:
-            print("[orange]obsWebSockets[/orange]-> [red]COULD NOT CONNECT TO OBS!\nDon't forget to enable Websockets in OBS with the correct port and password.")
+            print("[orange4]obsWebSockets[/orange4]-> [red]COULD NOT CONNECT TO OBS!\nDon't forget to enable Websockets in OBS with the correct port and password.")
             time.sleep(10)
             sys.exit()
-        print("[orange]obsWebSockets[/orange]-> [green]Successfully connected to OBS Websockets!")
+        print("[orange4]obsWebSockets[/orange4]-> [green]Successfully connected to OBS Websockets!")
 
 
     def change_scene(self, scene_name):

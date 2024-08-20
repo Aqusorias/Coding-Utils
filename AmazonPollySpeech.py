@@ -111,10 +111,10 @@ class AmazonPollyManager:
         
         response = requests.get(f'https://api.streamelements.com/kappa/v2/speech?voice={voice_name}&text={encoded_text}')
         if response.status_code == 422:
-            print('[orange]AmazonPollySpeech[/orange]-> [yellow]convertTextToAudio[/yellow] - [red]Text length too long. Cannot convert to audio. Sorry!! [blue](Returned: None)')
+            print('[orange4]AmazonPollySpeech[/orange4]-> [yellow]convertTextToAudio[/yellow] - [red]Text length too long. Cannot convert to audio. Sorry!! [blue](Returned: None)')
             return
         if response.status_code == 429:
-            print('[orange]AmazonPollySpeech[/orange]-> [yellow]convertTextToAudio[/yellow] - [red]Rate limit reached. Please try again in a minute. Cannot convert to audio. Sorry!! [blue](Returned: None)')
+            print('[orange4]AmazonPollySpeech[/orange4]-> [yellow]convertTextToAudio[/yellow] - [red]Rate limit reached. Please try again in a minute. Cannot convert to audio. Sorry!! [blue](Returned: None)')
             return
 
         with open((f"_Msg{str(hash(text))}{str(hash(voice_name))}"[:245] + ".wav"), 'wb') as f:

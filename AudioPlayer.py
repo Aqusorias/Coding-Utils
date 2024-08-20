@@ -36,7 +36,7 @@ new_extension: New file extension for the audio file
 class AudioManager:
     def __init__(self):
         pygame.mixer.init(frequency=48000, buffer=1024) # default 44100, 512
-        print("[orange]AudioManager[/orange]-> [green]Successfully connected to AudioManager!")
+        print("[orange4]AudioManager[/orange4]-> [green]Successfully connected to AudioManager!")
         
 
     def play_audio(self, file_path, sleep_during_playback=True, delete_file=False, pygame_music=True): 
@@ -58,7 +58,7 @@ class AudioManager:
                 mp3_file = MP3(file_path)
                 file_length = mp3_file.info.length
             else:
-                print("[orange]AudioPlayer[/orange]-> [yellow]play_audio[/yellow] - [red]Cannot play audio, unknown file type. Could not play the audio. Sorry!!")
+                print("[orange4]AudioPlayer[/orange4]-> [yellow]play_audio[/yellow] - [red]Cannot play audio, unknown file type. Could not play the audio. Sorry!!")
                 return
 
             time.sleep(file_length)
@@ -69,7 +69,7 @@ class AudioManager:
                 try:  
                     os.remove(file_path)
                 except PermissionError:
-                    print(f"[orange]AudioPlayer[/orange]-> [yellow]play_audio[/yellow] - [bright_red]Couldn't remove {file_path} because it is being used by another process.")
+                    print(f"[orange4]AudioPlayer[/orange4]-> [yellow]play_audio[/yellow] - [bright_red]Couldn't remove {file_path} because it is being used by another process.")
 
 
     def stop_audio(self):
@@ -84,7 +84,7 @@ class AudioManager:
             return new_file_path
         
         if old_extension == new_extension:
-            print("[orange]AudioPlayer[/orange]-> [yellow]convertFile[/yellow] - [bright_red]Source and target formats are the same. No conversion needed. [blue](Returned: None)")
+            print("[orange4]AudioPlayer[/orange4]-> [yellow]convertFile[/yellow] - [bright_red]Source and target formats are the same. No conversion needed. [blue](Returned: None)")
             return
 
         if old_extension == 'wav':
@@ -96,7 +96,7 @@ class AudioManager:
         elif old_extension == 'flac':
             audio = AudioSegment.from_flac(file_path)
         else:
-            print("[orange]AudioPlayer[/orange]-> [yellow]convertFile[/yellow] - [red]Cannot convert audio, unknown source file type. Could not convert the file. Sorry!! [blue](Returned: None)")
+            print("[orange4]AudioPlayer[/orange4]-> [yellow]convertFile[/yellow] - [red]Cannot convert audio, unknown source file type. Could not convert the file. Sorry!! [blue](Returned: None)")
             return
         audio.export(new_file_path, format=new_extension.lstrip('.'))
 
