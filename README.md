@@ -19,7 +19,7 @@ These are some Modules that I've made that might come in handy at some point. Th
 - **AzureSpeech.py*** - AzureSpeech lets you convert text into TTS with different voices and voice styles (angry, cheerful, whispering, ...)
 - **ElevenLabsSpeech.py*** - ElevenLabsSpeech lets you convert text into TTS with a premade voice in [ElevenLabs](https://elevenlabs.io).
 - **AmazonPollySpeech.py** - AmazonPollySpeech lets you convert text into TTS with different voices (used by StreamElements and StreamLabs).
-- **gTTSSpeech.py** - ~Comming soon~
+- **gTTSSpeech.py** - gTTSSpeech lets you convert text into TTS, free, but just with 1 voice
 
 ****Needs some pre-preparations, explained in How to use*** 
 
