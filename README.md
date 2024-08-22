@@ -9,6 +9,7 @@ These are some Modules that I've made that might come in handy at some point. Th
 - [Different Modules](https://github.com/Aqusorias/Coding-Utils#different-modules)
 - [How to use](https://github.com/Aqusorias/Coding-Utils#how-to-use)
 - [Different Infos](https://github.com/Aqusorias/Coding-Utils#different-infos)
+- [Coding Examples](https://github.com/Aqusorias/Coding-Utils#coding-examples)
 - [Special Thanks](https://github.com/Aqusorias/Coding-Utils#special-thanks)
 
 ---
@@ -54,6 +55,41 @@ Some modules return a value, and in some cases, in some functions, it CAN return
 - - green: Success! Everything worked as expected
 - - red: Error.. Something broke
 - - bright red: Warning. Something happened, but nothing major. Everything still should work well
+
+---
+
+# Coding-Examples
+
+Combination between AudioPlayer and openaiWhisper, you ask a question, it transcribes it:
+```py
+import os
+import time
+import keyboard
+from openaiWhisper import openaiWhisperManager
+from AudioPlayer import AudioManager
+
+openaiwhisper_manager = openaiWhisperManager()
+audio_manager = AudioManager()
+
+print('Press "q" to ask a question')
+while True:
+    if keyboard.is_pressed('q'):
+        
+        mic_recording = audio_manager.record_audio(duration=0, save_as_wave=False)
+        question = openaiwhisper_manager.convertAudioToText(file_path=mic_recording, model="base")
+
+        print(f'You asked: {question}')
+        
+        time.sleep(1)
+        
+        try:
+            os.remove(mic_recording)
+        except PermissionError as e:
+            print(e)
+        break
+```
+
+More are to come...
 
 ---
 
