@@ -1,5 +1,5 @@
 import os
-from rich import time
+from rich import print
 from elevenlabs import generate, stream, set_api_key, voices, play, save
 
 
@@ -11,6 +11,7 @@ Documentations: https://elevenlabs.io/docs/api-reference/text-to-speech
 --------------------------
 
 >>:-  pip install elevenlabs==1.7.0
+      pip install rich
 
 Usage: 
 1. elevenlabs_output = elevenlabs_manager.convertTextToAudio(text, voice="", save_as_wave=True, subdirectory="")!?                   // Converts tts and returns the file path
@@ -28,6 +29,7 @@ subdirectory = Subdirectory where the audio file should be saved (Empty will be 
 
 
 class ElevenLabsManager:
+    
     def __init__(self):
         try:
             set_api_key(os.getenv('ELEVENLABS_API_KEY'))

@@ -14,12 +14,13 @@ These are some Modules that I've made that might come in handy at some point. Th
 ---
 
 # Different Modules
-- **Audioplayer.py** - The Audio Player lets you play audio files via pygame.
+- **Audioplayer.py** - The Audio Player lets you play audio files via pygame. Also it lets you record your microphone and save it as a mp3 / wave file
 - **obsWebsockets.py*** - obsWebsockets lets you connect with your OBS and change different things such as changing the source visibility, filter visibility
 - **AzureSpeech.py*** - AzureSpeech lets you convert text into TTS with different voices and voice styles (angry, cheerful, whispering, ...)
 - **ElevenLabsSpeech.py*** - ElevenLabsSpeech lets you convert text into TTS with a premade voice in [ElevenLabs](https://elevenlabs.io).
 - **AmazonPollySpeech.py** - AmazonPollySpeech lets you convert text into TTS with different voices (used by StreamElements and StreamLabs).
 - **gTTSSpeech.py** - gTTSSpeech lets you convert text into TTS, free, but just with 1 voice
+- **openaiWhisper.py** - openaiWhisper lets you convert audio to text quickly with openAi's whisper
 
 ****Needs some pre-preparations, explained in How to use*** 
 

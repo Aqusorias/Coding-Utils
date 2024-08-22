@@ -12,6 +12,7 @@ Documentation: https://websockets.readthedocs.io/en/stable/
 --------------------------
 
 >>:-  pip install obs-websocket-py
+      pip install rich
 
 Usage: 
 1. obswebsockets_manager.set_source_visibility(scene_name, source_name, source_visible=True)            // Activate or deactivate a source (e.g. an image)

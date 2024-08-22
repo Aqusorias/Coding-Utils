@@ -13,6 +13,7 @@ Documentations: https://gtts.readthedocs.io/en/latest/
 
 >>:-  pip install gTTS==2.5.3
       pip install pyDub==0.25.1
+      pip install rich
 
 Usage: 
 1. gtts_output = gtts_manager.convertTextToAudio(text)!?            // Converts tts and returns the file path
@@ -47,5 +48,5 @@ class gTTSManager:
             return output
 
 
-if __name__ == '__main__': 
-    exit("Do not run this file directly")
+if __name__ == '__main__':
+      exit("Do not run this file directly")

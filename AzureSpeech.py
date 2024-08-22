@@ -15,6 +15,7 @@ Documentations: https://learn.microsoft.com/en-us/azure/ai-services/speech-servi
 --------------------------
 
 >>:-  pip install azure-cognitiveservices-speech==1.40.0
+      pip install rich
 
 Usage: 
 1. azuretts_output = azuretts_manager.convertTextToAudio(text, voice_name="random", voice_style="random")!?            // Converts tts and returns the file path

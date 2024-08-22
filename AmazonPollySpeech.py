@@ -13,6 +13,7 @@ Thanks to SietseT, the creator of [ElundusCore](https://github.com/SietseT/Elund
 
 >>:-  pip install requests==2.32.3
       pip install urllib.parse
+      pip install rich
 
 Usage: 
 1. amazonpolly_output = amazonpolly_manager.convertTextToAudio(text, voice_name="Brian", language="en")!?            // Converts tts and returns the file path
