@@ -1,7 +1,5 @@
 # Modules - made by Aqusorias
 
-![GitHub downloads](https://img.shields.io/github/downloads/Aqusorias/Coding-Utils/total?style=flat-square)
-
 These are some Modules that I've made that might come in handy at some point. They mostly are useful for streaming, but it's not restricted for it
 
 ---
